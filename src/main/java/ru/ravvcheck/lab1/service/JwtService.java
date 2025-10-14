@@ -21,7 +21,6 @@ import java.util.function.Function;
 @Service
 @RequiredArgsConstructor
 public class JwtService {
-
     private final UserRepository userRepository;
     @Value("${jwt.signing-key}")
     private String jwtSigningKey;
