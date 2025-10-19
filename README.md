@@ -81,11 +81,13 @@ Request:
 POST /api/data
 Authorization: Bearer <JWT>
 
+```
 {
   "name": "name",
   "author": "author",
   "numberOfPlays": 0
 }
+```
 
 Response:
 
