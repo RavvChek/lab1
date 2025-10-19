@@ -13,10 +13,12 @@ Request:
 
 POST /auth/login
 
+```
 {
   "username": "user",
   "password": "password"
 }
+```
 
 Response (JSON):
 
