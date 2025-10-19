@@ -1,6 +1,14 @@
-# Information Security Lab #1, ITMO SE (Spring Boot/Java)
+# Information Security Lab #1
 
 ---
+
+# Описание проекта
+
+Данный проект представляет из себя веб-приложение, демонстрирующее современные практики веб-безопасности, реализуя с помощью Java/Spring:
+- JWT-аутентификация.
+- Валидация входных данных для предотвращения XSS атак.
+- ORM запросы для предотвращения использования SQL-инъекции.
+- Конфигурация на основе переменных окружения для безопасного развёртывания приложения.
 
 # Методы API
 
@@ -22,10 +30,11 @@ POST /auth/login
 
 Response (JSON):
 
+```
 {
-  "token": "eyJhbGciOiJIUzI1NiIsInR5...",
-  "isAdminRole": "false"
+  "token": "eyJhbGciOiJIUzI1NiIsInR5..."
 }
+```
 
 Ошибки:
 
@@ -33,28 +42,28 @@ Response (JSON):
 
 ---
 
-## 2. GET /api/data -- Получение списка локаций
+## 2. GET /api/data -- Получение списка треков
 
 Описание:
-Возвращает список сущностей Location. Доступ только для аутентифицированных пользователей (с валидным JWT).
+Возвращает список сущностей Tracks. Доступ только для аутентифицированных пользователей (с валидным JWT).
 
 Request:
 
-GET /api/data/list
+GET /api/data
 Authorization: Bearer <JWT>
 
 Response (JSON):
 
+```
 [
   {
     "id": 0,
-    "x": 0,
-    "y": 0,
-    "z": 0,
-    "name": "sample_name",
-    "description": "sample_desctiption"
+    "name": "name",
+    "author": "author",
+    "numberOfPLays": 0,
   }
 ]
+```
 
 Ошибки:
 
@@ -62,10 +71,10 @@ Response (JSON):
 
 ---
 
-## 3. POST /api/data -- Добавление новой локации
+## 3. POST /api/data -- Добавление нового трека
 
 Описание:
-Добавляет новую сущность Location в список. Доступ только для аутентифицированных пользователей.
+Добавляет новую сущность Track в список. Доступ только для аутентифицированных пользователей.
 
 Request:
 
@@ -73,12 +82,9 @@ POST /api/data
 Authorization: Bearer <JWT>
 
 {
-  "id": 0,
-  "x": 0,
-  "y": 0,
-  "z": 0,
-  "name": "string",
-  "description": "string"
+  "name": "name",
+  "author": "author",
+  "numberOfPlays": 0
 }
 
 Response:
@@ -117,12 +123,6 @@ Authorization: Bearer <JWT>
 * Без токена доступ к защищённым эндпоинтам запрещён.
 
 # Скриншот отчета OWASP
-![dependency-check-report.png](dependency-check-report.png)
+![]()
 # Результат SpotBugs
-<FindBugsSummary 
-    num_packages='8' total_classes='23' total_size='430' 
-    clock_seconds='3.27' referenced_classes='194'
-    vm_version='21.0.8+9-LTS' total_bugs='0'
-    java_version='21.0.8' gc_seconds='0.04'
-    alloc_mbytes='512.00' cpu_seconds='10.67'
-    peak_mbytes='234.59' timestamp='Mon, 13 Oct 2025 22:12:10 +0000'>
+
