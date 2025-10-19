@@ -1,6 +1,5 @@
 package ru.ravvcheck.lab1.service;
 
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,7 +12,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class TrackService {
-    private TrackRepository trackRepository;
+    private final TrackRepository trackRepository;
 
     @Transactional
     public void create(TrackDto trackDto) {
@@ -25,23 +24,8 @@ public class TrackService {
         trackRepository.save(newTrack);
     }
 
-
-    @Transactional
-    public Track save(Track track) {
-        return trackRepository.save(track);
-    }
-
     @Transactional
     public List<Track> getAllTracks() {
         return trackRepository.findAll();
-    }
-
-    @Transactional
-    public Track getTrackByName(String name) {
-        var track = trackRepository.findByName(name);
-        if (track == null) {
-            throw new EntityNotFoundException("Трек не найден!");
-        }
-        return track;
     }
 }

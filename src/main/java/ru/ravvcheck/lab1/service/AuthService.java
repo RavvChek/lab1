@@ -14,10 +14,10 @@ import ru.ravvcheck.lab1.entity.User;
 @Service
 @RequiredArgsConstructor
 public class AuthService {
-    private UserService userService;
-    private JwtService jwtService;
-    private AuthenticationManager authenticationManager;
-    private PasswordEncoder passwordEncoder;
+    private final UserService userService;
+    private final JwtService jwtService;
+    private final AuthenticationManager authenticationManager;
+    private final PasswordEncoder passwordEncoder;
 
     /**
      * Регистрация пользователя
