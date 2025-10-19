@@ -9,7 +9,7 @@ import ru.ravvcheck.lab1.service.TrackService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/tracks")
+@RequestMapping("/api/data")
 @RequiredArgsConstructor
 public class TrackController {
     private final TrackService trackService;
